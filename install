@@ -2,7 +2,6 @@
 cp fonts.conf ~/Downloads
 
 echo "Downloading MS Gothic and MS Mincho..."
-cd ~/Downloads
 rm msgothic.zip msmincho.zip MSGOTHIC.TTF MSMINCHO.TTF
 wget http://www.linux.ryukent.co.uk/download/msgothic.zip
 wget http://www.linux.ryukent.co.uk/download/msmincho.zip
@@ -11,6 +10,7 @@ unzip msmincho.zip
 
 echo "Moving fonts to /usr/share..."
 sudo mkdir /usr/share/fonts/msjapanese
+rm msgothic.zip msmincho.zip
 sudo mv MSGOTHIC.TTF /usr/share/fonts/msjapanese
 sudo mv MSMINCHO.TTF /usr/share/fonts/msjapanese
 
