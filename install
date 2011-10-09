@@ -1,0 +1,22 @@
+#!/bin/bash
+cp fonts.conf ~/Downloads
+
+echo "Downloading MS Gothic and MS Mincho..."
+cd ~/Downloads
+rm msgothic.zip msmincho.zip MSGOTHIC.TTF MSMINCHO.TTF
+wget http://www.linux.ryukent.co.uk/download/msgothic.zip
+wget http://www.linux.ryukent.co.uk/download/msmincho.zip
+unzip msgothic.zip
+unzip msmincho.zip
+
+echo "Moving fonts to /usr/share..."
+sudo mkdir /usr/share/fonts/msjapanese
+sudo mv MSGOTHIC.TTF /usr/share/fonts/msjapanese
+sudo mv MSMINCHO.TTF /usr/share/fonts/msjapanese
+
+echo "Backing up /etc/fonts/fonts.conf"
+sudo cp /etc/fonts/fonts.conf /etc/fonts/fonts.conf.bak
+
+echo "Copying fonts.conf to /etc/fonts/fonts.conf"
+sudo cp fonts.conf /etc/fonts/fonts.conf
+sudo fc-cache -f -v
