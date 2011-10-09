@@ -9,14 +9,15 @@ unzip msgothic.zip
 unzip msmincho.zip
 
 echo "Moving fonts to /usr/share..."
-sudo mkdir /usr/share/fonts/msjapanese
+mkdir ~/.fonts
+mkdir ~/.fonts/msjapanese
 rm msgothic.zip msmincho.zip
-sudo mv MSGOTHIC.TTF /usr/share/fonts/msjapanese
-sudo mv MSMINCHO.TTF /usr/share/fonts/msjapanese
+mv MSGOTHIC.TTF ~/.fonts/msjapanese
+mv MSMINCHO.TTF ~/.fonts/msjapanese
 
 echo "Backing up /etc/fonts/fonts.conf"
-sudo cp /etc/fonts/fonts.conf /etc/fonts/fonts.conf.bak
+cp ~/.fonts.conf ~/.fonts.conf.bak
 
 echo "Copying fonts.conf to /etc/fonts/fonts.conf"
-sudo cp fonts.conf /etc/fonts/fonts.conf
+cp fonts.conf ~/.fonts.conf
 sudo fc-cache -f -v
